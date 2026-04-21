@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>LuciShop | Luxury Watches, Refined for Modern Collectors</title>
+  <meta
+    name="description"
+    content="LuciShop is a premium luxury watch storefront featuring refined timepieces, exclusive collections, elegant craftsmanship, and a fully immersive high-end shopping experience."
+  />
+  <meta
+    name="theme-color"
+    content="#0b0b0d"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  />
+</head>
+<body>
+  <!-- Page Loader -->
+  <div
+    class="page-loader"
+    id="pageLoader"
+    aria-hidden="true"
+  >
+    <div class="loader-mark">
+      <span class="loader-ring"></span>
+      <span class="loader-text">LuciShop</span>
+    </div>
+  </div>
+
+  <!-- Backdrop for overlays -->
+  <div
+    class="site-backdrop"
+    id="siteBackdrop"
+    hidden
+  ></div>
+
+  <!-- Header -->
+  <header
+    class="site-header"
+    id="siteHeader"
+  >
+    <div class="container header-inner">
+      <a
+        href="#home"
+        class="brand"
+        aria-label="LuciShop home"
+      >
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span class="brand-text">
+          <span class="brand-name">LuciShop</span>
+          <span class="brand-tagline">Fine Watch Boutique</span>
+        </span>
+      </a>
+
+      <nav
+        class="main-nav"
+        id="mainNav"
+        aria-label="Primary navigation"
+      >
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#collection" class="nav-link">Collection</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#featured" class="nav-link">Featured</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          class="header-action-btn search-btn"
+          type="button"
+          aria-label="Search luxury watches"
+          title="Search"
+        >
+          <span class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35m1.35-5.15a7.5 7.5 0 1 1-15 0a7.5 7.5 0 0 1 15 0Z" />
+            </svg>
+          </span>
+        </button>
+
+        <button
+          class="header-action-btn cart-toggle"
+          id="cartToggle"
+          type="button"
+          aria-label="Open shopping cart"
+          aria-controls="cartDrawer"
+          aria-expanded="false"
+        >
+          <span class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 4h2l2.2 10.2a1 1 0 0 0 .98.8H18a1 1 0 0 0 .96-.73L21 7H7" />
+              <path d="M10 20a1 1 0 1 1-2 0a1 1 0 0 1 2 0Zm9 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0Z" />
+            </svg>
+          </span>
+          <span class="cart-label">Cart</span>
+          <span
+            class="cart-count"
+            id="cartCount"
+            aria-live="polite"
+            aria-atomic="true"
+          >0</span>
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Open mobile menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <aside
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-hidden="true"
+  >
+    <div class="mobile-menu-header">
+      <div class="mobile-brand">
+        <span class="brand-mark">L</span>
+        <div>
+          <strong>LuciShop</strong>
+          <span>Luxury Watches</span>
+        </div>
+      </div>
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        type="button"
+        aria-label="Close mobile menu"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <nav
+      class="mobile-nav"
+      aria-label="Mobile navigation"
+    >
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#collection" class="mobile-nav-link">Collection</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#featured" class="mobile-nav-link">Featured</a>
+      <a href="#why-choose-us" class="mobile-nav-link">Why Choose Us</a>
+      <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+
+    <div class="mobile-menu-footer">
+      <p>Curated timepieces for collectors who value elegance, precision, and presence.</p>
+      <a href="#newsletter" class="btn btn-gold btn-block">Join Private List</a>
+    </div>
+  </aside>
+
+  <!-- Cart Drawer -->
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+    aria-labelledby="cartTitle"
+    aria-hidden="true"
+  >
+    <div class="cart-drawer-header">
+      <div>
+        <p class="eyebrow">Private Selection</p>
+        <h2 id="cartTitle">Your Cart</h2>
+      </div>
+      <button
+        class="cart-close"
+        id="cartClose"
+        type="button"
+        aria-label="Close cart"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <div
+      class="cart-items"
+      id="cartItems"
+      aria-live="polite"
+    >
+      <!-- Cart items rendered by JS -->
+    </div>
+
+    <div class="cart-summary">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0</strong>
+      </div>
+      <div class="cart-summary-row">
+        <span>Curated Delivery</span>
+        <strong>Complimentary</strong>
+      </div>
+      <div class="cart-summary-row total">
+        <span>Total</span>
+        <strong id="cartTotal">$0</strong>
+      </div>
+      <button
+        class="btn btn-gold btn-block"
+        type="button"
+        id="checkoutBtn"
+      >
+        Secure Checkout
+      </button>
+      <p class="cart-note">
+        LuciShop offers a front-end luxury showcase experience. No payment is processed.
+      </p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Hero Section -->
+    <section
+      class="hero-section"
+      id="home"
+    >
+      <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Curated Swiss-Inspired Luxury</p>
+          <h1>
+            Timepieces with
+            <span>presence, precision, and permanence.</span>
+          </h1>
+          <p class="hero-text">
+            Discover a rare collection of luxury watches crafted for modern connoisseurs.
+            LuciShop presents distinguished designs where heritage detailing meets contemporary refinement.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#collection" class="btn btn-gold">Shop Collection</a>
+            <a href="#featured" class="btn btn-outline">Explore Timepieces</a>
+          </div>
+
+          <ul class="hero-metrics" aria-label="LuciShop highlights">
+            <li>
+              <strong>4</strong>
+              <span>Exclusive Models</span>
+            </li>
+            <li>
+              <strong>Premium</strong>
+              <span>Curated Finishes</span>
+            </li>
+            <li>
+              <strong>Timeless</strong>
+              <span>Luxury Craftsmanship</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay">
+          <div class="hero-card floating-card">
+            <img
+              src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80"
+              alt="Luxury silver and black wristwatch displayed in a premium editorial style"
+            />
+            <div class="hero-card-content glass-panel">
+              <p class="hero-card-label">Signature Arrival</p>
+              <h2>Aurelius Regatta Chronograph</h2>
+              <span>Commanding detail. Executive character.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- Brand Strip -->
+    <section class="brand-strip">
+      <div class="container brand-strip-inner">
+        <div class="brand-strip-copy reveal">
+          <p>Luxury selection. Precision-led presentation. Elevated digital shopping.</p>
+        </div>
+        <div class="brand-strip-items reveal reveal-delay">
+          <span>Heritage Craft</span>
+          <span>Limited Editions</span>
+          <span>Executive Design</span>
+          <span>Refined Materials</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section
+      class="collection-section section-spacing"
+      id="collection"
+    >
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured Collection</p>
+          <h2>Our Curated Luxury Watch Portfolio</h2>
+          <p>
+            Each LuciShop timepiece is selected for design purity, mechanical character,
+            and a distinct sense of exclusivity worthy of a private collection.
+          </p>
+        </div>
+
+        <div class="collection-toolbar reveal reveal-delay">
+          <div class="toolbar-copy">
+            <span class="toolbar-label">Available Timepieces</span>
+            <strong id="productCount">0 Models</strong>
+          </div>
+          <div class="toolbar-actions">
+            <button
+              class="filter-pill is-active"
+              type="button"
+              data-filter="all"
+            >
+              All Watches
+            </button>
+            <button
+              class="filter-pill"
+              type="button"
+              data-filter="heritage"
+            >
+              Heritage
+            </button>
+            <button
+              class="filter-pill"
+              type="button"
+              data-filter="executive"
+            >
+              Executive
+            </button>
+            <button
+              class="filter-pill"
+              type="button"
+              data-filter="limited"
+            >
+              Limited
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="products-grid"
+          id="productsGrid"
+          aria-live="polite"
+        >
+          <!-- Products rendered via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Banner -->
+    <section class="editorial-section section-spacing">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-content reveal">
+            <p class="eyebrow">A Statement Beyond Time</p>
+            <h2>Luxury is not excess. It is restraint, balance, and immaculate detail.</h2>
+            <p>
+              LuciShop was imagined for collectors who appreciate quiet distinction.
+              Every watch in our portfolio is presented with refined storytelling,
+              premium materials, and a visual identity shaped by timeless elegance.
+            </p>
+            <a href="#about" class="text-link">
+              Discover the LuciShop philosophy
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="editorial-image reveal reveal-delay">
+            <img
+              src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=80"
+              alt="Premium close-up of a luxury gold-tone wristwatch on a dark background"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section
+      class="about-section section-spacing"
+      id="about"
+    >
+      <div class="container about-grid">
+        <div class="about-image reveal">
+          <img
+            src="https://images.unsplash.com/photo-1617043786394-f977fa12eddf?auto=format&fit=crop&w=1200&q=80"
+            alt="Luxury watchmaking editorial scene with premium materials and refined craftsmanship"
+          />
+        </div>
+
+        <div class="about-content reveal reveal-delay">
+          <p class="eyebrow">About LuciShop</p>
+          <h2>A luxury watch destination defined by refinement and trust.</h2>
+          <p>
+            LuciShop brings together a focused collection of high-end watches for those
+            who value precision as deeply as aesthetics. Our philosophy is simple:
+            fewer pieces, better standards, stronger identity.
+          </p>
+          <p>
+            From heritage-inspired silhouettes to modern executive statements and
+            rare limited editions, every LuciShop model is chosen to evoke confidence,
+            permanence, and unmistakable taste.
+          </p>
+
+          <div class="about-highlights">
+            <article class="about-highlight">
+              <h3>Precision First</h3>
+              <p>Thoughtful movement selection and meticulous attention to performance-driven detailing.</p>
+            </article>
+            <article class="about-highlight">
+              <h3>Luxury Materials</h3>
+              <p>Polished steel, sapphire crystal, hand-finished surfaces, and premium straps define every piece.</p>
+            </article>
+            <article class="about-highlight">
+              <h3>Curated Exclusivity</h3>
+              <p>A deliberate collection designed for those who prefer distinction over noise.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section
+      class="benefits-section section-spacing"
+      id="why-choose-us"
+    >
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Why Choose Us</p>
+          <h2>Luxury, curated with conviction.</h2>
+          <p>
+            Every LuciShop experience is shaped to feel premium, seamless, and worthy
+            of a discerning client.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3l7 4v5c0 5-3.5 7.5-7 9c-3.5-1.5-7-4-7-9V7l7-4Z" />
+              </svg>
+            </div>
+            <h3>Crafted Excellence</h3>
+            <p>Refined casework, precise detailing, and premium finishing standards across the collection.</p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 6v6l4 2" />
+                <path d="M12 22a10 10 0 1 0 0-20a10 10 0 0 0 0 20Z" />
+              </svg>
+            </div>
+            <h3>Timeless Design</h3>
+            <p>Watch silhouettes designed to remain elegant across seasons, occasions, and generations.</p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 3h10l2 5-7 13L5 8l2-5Z" />
+              </svg>
+            </div>
+            <h3>Premium Materials</h3>
+            <p>Carefully selected metals, sapphire crystal, elevated straps, and luxury tactile finishes.</p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 10V8a6 6 0 1 1 12 0v2" />
+                <path d="M5 10h14v11H5z" />
+              </svg>
+            </div>
+            <h3>Secure Shopping</h3>
+            <p>An elegant front-end experience designed with clarity, ease, and premium interface trust signals.</p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2l3 6 6 .9-4.5 4.3 1.1 6.3L12 16.8 6.4 19.5l1.1-6.3L3 8.9 9 8l3-6Z" />
+              </svg>
+            </div>
+            <h3>Curated Selection</h3>
+            <p>A focused portfolio of high-end timepieces rather than a crowded marketplace of compromises.</p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12h16" />
+                <path d="M12 4v16" />
+                <path d="M5 5l14 14" />
+              </svg>
+            </div>
+            <h3>Refined Service Feel</h3>
+            <p>Editorial presentation, intuitive browsing, and product storytelling that respects luxury expectations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Spotlight -->
+    <section
+      class="featured-spotlight section-spacing"
+      id="featured"
+    >
+      <div class="container spotlight-grid">
+        <div class="spotlight-content reveal">
+          <p class="eyebrow">Collector's Feature</p>
+          <h2>Designed for the wrist. Composed for the room.</h2>
+          <p>
+            The LuciShop featured selection favors character over trend.
+            Expect commanding silhouettes, restrained detailing, and a finishing language
+            that feels tailored rather than mass produced.
+          </p>
+          <ul class="spotlight-list">
+            <li>Distinctive case architecture and polished proportions</li>
+            <li>Luxury presentation built for gifting and collecting</li>
+            <li>Elegant front-end detail views and seamless cart experience</li>
+          </ul>
+          <a href="#collection" class="btn btn-outline">View the Collection</a>
+        </div>
+
+        <div class="spotlight-stats reveal reveal-delay">
+          <article class="spotlight-stat">
+            <strong>Swiss-Inspired</strong>
+            <span>Design language with architectural clarity</span>
+          </article>
+          <article class="spotlight-stat">
+            <strong>Limited Runs</strong>
+            <span>Select pieces positioned with exclusivity in mind</span>
+          </article>
+          <article class="spotlight-stat">
+            <strong>Luxury Editorial UI</strong>
+            <span>Immersive presentation from hero to checkout panel</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section
+      class="testimonials-section section-spacing"
+      id="testimonials"
+    >
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Client Impressions</p>
+          <h2>Trusted by collectors with exceptional standards.</h2>
+          <p>
+            A premium storefront experience should feel as considered as the products it presents.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="stars" aria-label="Five star review">★★★★★</div>
+            <p>
+              “LuciShop feels like a private watch salon translated perfectly into digital form.
+              The presentation is sophisticated, restrained, and genuinely premium.”
+            </p>
+            <div class="testimonial-author">
+              <strong>Daniel Mercer</strong>
+              <span>Private Collector, New York</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal reveal-delay">
+            <div class="stars" aria-label="Five star review">★★★★★</div>
+            <p>
+              “The product storytelling is exceptional. Each watch feels distinct, desirable,
+              and positioned with the confidence of a true luxury brand.”
+            </p>
+            <div class="testimonial-author">
+              <strong>Amelia Laurent</strong>
+              <span>Creative Director, Paris</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="stars" aria-label="Five star review">★★★★★</div>
+            <p>
+              “Elegant interface, premium details, and a cart experience that feels seamless.
+              LuciShop captures exclusivity without becoming inaccessible.”
+            </p>
+            <div class="testimonial-author">
+              <strong>Victor Hayes</strong>
+              <span>Executive Buyer, London</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section
+      class="newsletter-section section-spacing"
+      id="newsletter"
+    >
+      <div class="container">
+        <div class="newsletter-panel reveal">
+          <div class="newsletter-copy">
+            <p class="eyebrow">Private Journal</p>
+            <h2>Receive new releases, collector notes, and exclusive LuciShop updates.</h2>
+            <p>
+              Join our newsletter for early access to featured timepieces, limited drops,
+              and luxury watch insights curated for a discerning audience.
+            </p>
+          </div>
+
+          <form
+            class="newsletter-form"
+            id="newsletterForm"
+            novalidate
+          >
+            <label for="newsletterEmail" class="sr-only">Email address</label>
+            <div class="newsletter-input-group">
+              <input
+                type="email"
+                id="newsletterEmail"
+                name="newsletterEmail"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                aria-describedby="newsletterFeedback"
+                required
+              />
+              <button
+                type="submit"
+                class="btn btn-gold"
+              >
+                Subscribe
+              </button>
+            </div>
+            <p
+              class="form-feedback"
+              id="newsletterFeedback"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section
+      class="contact-section section-spacing"
+      id="contact"
+    >
+      <div class="container contact-grid">
+        <div class="contact-content reveal">
+          <p class="eyebrow">Contact LuciShop</p>
+          <h2>Speak with our luxury watch team.</h2>
+          <p>
+            Whether you are selecting a signature piece, exploring a collector gift,
+            or requesting guidance on our portfolio, we invite you to get in touch.
+          </p>
+
+          <div class="contact-cards">
+            <article class="contact-card">
+              <h3>Client Services</h3>
+              <p>concierge@lucishop.com</p>
+              <span>Mon – Fri / 9:00 AM – 7:00 PM</span>
+            </article>
+
+            <article class="contact-card">
+              <h3>Private Appointments</h3>
+              <p>+1 (800) 555-0148</p>
+              <span>Reserved consultations available</span>
+            </article>
+
+            <article class="contact-card">
+              <h3>Showroom Address</h3>
+              <p>18 Mercer Avenue, Suite 5</p>
+              <span>New York, NY 10013</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal reveal-delay">
+          <form
+            class="contact-form"
+            id="contactForm"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Your full name"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="name@email.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="How may we assist?"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="interest">Interest</label>
+                <select id="interest" name="interest" required>
+                  <option value="">Select an option</option>
+                  <option value="collection">Collection Inquiry</option>
+                  <option value="purchase">Purchase Guidance</option>
+                  <option value="limited-edition">Limited Edition Request</option>
+                  <option value="gifting">Luxury Gifting</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Share your inquiry and preferred timepiece style..."
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-gold"
+            >
+              Send Inquiry
+            </button>
+
+            <p
+              class="form-feedback"
+              id="contactFeedback"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a
+          href="#home"
+          class="brand footer-brand-link"
+          aria-label="LuciShop home"
+        >
+          <span class="brand-mark" aria-hidden="true">L</span>
+          <span class="brand-text">
+            <span class="brand-name">LuciShop</span>
+            <span class="brand-tagline">Fine Watch Boutique</span>
+          </span>
+        </a>
+        <p>
+          LuciShop is a luxury watch storefront experience built around elegance,
+          restraint, and a carefully curated portfolio of premium timepieces.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Client Services</h3>
+        <ul>
+          <li><a href="mailto:concierge@lucishop.com">concierge@lucishop.com</a></li>
+          <li><a href="tel:+18005550148">+1 (800) 555-0148</a></li>
+          <li><span>Private consultations available</span></li>
+          <li><span>Complimentary luxury delivery</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Social</h3>
+        <ul>
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Pinterest">Pinterest</a></li>
+          <li><a href="#" aria-label="YouTube">YouTube</a></li>
+          <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear">2026</span> LuciShop. All rights reserved.</p>
+      <a href="#home" class="back-top-link" id="backTopLink">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Product Detail Modal -->
+  <div
+    class="modal"
+    id="productModal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalProductTitle"
+  >
+    <div class="modal-dialog">
+      <button
+        class="modal-close"
+        id="modalClose"
+        type="button"
+        aria-label="Close product details"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <div class="modal-body" id="modalBody">
+        <div class="modal-product-media">
+          <img
+            id="modalProductImage"
+            src=""
+            alt=""
+          />
+        </div>
+
+        <div class="modal-product-info">
+          <div class="modal-topline">
+            <span class="product-badge" id="modalProductBadge">Exclusive</span>
+            <span class="product-category" id="modalProductCategory">Luxury Watch</span>
+          </div>
+
+          <h2 id="modalProductTitle">Product Title</h2>
+          <p class="modal-price" id="modalProductPrice">$0</p>
+          <p class="modal-description" id="modalProductDescription"></p>
+
+          <div class="modal-meta">
+            <div class="modal-meta-item">
+              <span class="meta-label">Movement</span>
+              <strong id="modalProductMovement">Automatic</strong>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-label">Material</span>
+              <strong id="modalProductMaterial">Polished Steel</strong>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-label">Style</span>
+              <strong id="modalProductStyle">Executive</strong>
+            </div>
+          </div>
+
+          <div class="modal-features">
+            <h3>Key Features</h3>
+            <ul id="modalProductFeatures">
+              <!-- Features injected by JS -->
+            </ul>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              class="btn btn-gold"
+              type="button"
+              id="modalAddToCart"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="btn btn-outline"
+              type="button"
+              id="modalContinueBrowsing"
+            >
+              Continue Browsing
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <div class="toast-content">
+      <strong id="toastTitle">Success</strong>
+      <p id="toastMessage">Item added to cart.</p>
+    </div>
+  </div>
+
+  <!-- Back to top floating button -->
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5" />
+      <path d="M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
